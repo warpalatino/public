@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <title> My Django test - users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'ProTWO_app/Static/mystyle.css' %}">
+  </head>
+  
+  <body>
+    <h1> Ok this is the page with users data </h1>
+    <h2> See below </h2>
+    
+    <div class="djangtwo">
+      
+      {% if users %}               <!-- template tagging: I use an "if" statement like in python and add what to do with the injection -->
+      
+      <table>
+        {% for single_user in users %}   <!-- template tagging: I use a "for loop" statement with injected text as table rows -->
+            <thead>
+              <th>First name </th>
+              <th>Last name </th>
+              <th>Email </th>
+            </thead>
+
+            <tr>
+                <td>{{ single_user.first_name }} </td>
+                <td>{{ single_user.last_name }} </td>
+                <td>{{ single_user.email }} </td>
+            </tr>
+          
+            {% endfor %}
+        </table>
+
+      {% else %}
+
+        <p>No Access Records here. Table Not Created.</p>
+
+      {% endif %}
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <title> Model form </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  
+  <body>
+
+    <div class="container">
+      <div class="jumbotron">
+        
+        <h1> Please sign-up here! </h1>
+    
+        <form method='POST'>
+
+          {{ form.as_p }}
+          {% csrf_token %}
+          <input type="submit" class="btn btn-primary" value="submit">
+
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>
